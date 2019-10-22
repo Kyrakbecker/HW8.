@@ -1,0 +1,70 @@
+<html> 
+        <title>for Loops</title>
+    
+    <script>
+        var actualAnswer;
+        var number1;
+        var number2;
+        var score = 0;
+        var count = 0;
+        var incorrect = 0;
+        var percentage = 0;
+        function printQuestion()
+        {
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+        }
+        
+        function checkAnswer()
+        {
+            var answer = document.getElementById("txtAnswer").value;
+                if(answer == actualAnswer)
+            {
+                document.getElementById("finalResult").innerHTML = "Good job!";
+                runGame();
+                score++;
+                count++;
+            }
+                else
+            {
+                document.getElementById("finalResult").innerHTML = "Try Again!";
+                count++;
+            }}
+            
+        function runGame()
+        {
+            for(var i = 0; i < 5; i++)
+            {
+                 number1 = Math.floor(Math.random() * 10);
+                 number2 = Math.floor(Math.random() * 10);
+            }
+            printQuestion();
+        }
+
+        function calculateincorrect() {
+            incorrect = 10 - score;
+            percentage = score/10;
+
+        }
+    </script>
+    </head>
+    <body onload="runGame();">
+        <div id="theQuestion"></div>
+            <table>
+                <tr>
+                    <td>Your answer</td>
+                    <td><input type="text" id="txtAnswer"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+                </tr>
+            </table>
+        <div id="finalResult"></div>
+        <div style="text-decoration-color: red;" id="gameOver" ></div>
+            <form action="Kyrabecker.html" type="Post">
+         
+        </form>
+        <a href="Kyrabecker.html"style="text-decoration:none">Go to my homepage</a>
+    </body>
+    <script> document.getElementById("myTag").innerHTML = "score" + 1</script>
+</html>
